@@ -57,35 +57,3 @@ self.addEventListener("fetch", function (event) {
     })
   );
 });
-
-// self.addEventListener("fetch", event => {
-//   if (event.request.url.includes("/api/")) {
-//     event.respondWith(
-//       caches.open(CACHE_NAME).then(cache => {
-//         return fetch(event.request)
-//           .then(response => {
-//             // If the response was good, clone it and store it in the cache.
-//             cache.put(event.request.url, response);
-
-//             return response.clone();
-//           })
-//           .catch(err => {
-//             // Network request failed, try to get it from the cache.
-//               return cache.match(event.request);
-//           });
-//       }).catch(err => {
-//         console.log(err)
-//       })
-//     );
-
-//     return;
-//   }
-
-//   event.respondWith(
-//     caches.open(CACHE_NAME).then(cache => {
-//       return cache.match(event.request).then(response => {
-//         return response || fetch(event.request);
-//       });
-//     })
-//   );
-// });
